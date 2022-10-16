@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# Make Authentication System
+**Project Requirement:** Make a simple authentication with sign up and sign in form and set data to mongo database.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Agenda: 
 
-## Available Scripts
+- add functional requirement
+- software requirement specification (SRS) model make
+- Technology use
+- Project setup
+- git hub push code
 
-In the project directory, you can run:
+## **Functional Requirement:**
 
-### `yarn start`
+## **Frontend:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**user authentication Signup:  → every input section must be validation check**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- user Name input - Enter your name provided this input → required must
+- email input - user email address provide this input → important to authentication → require must
+- user age input - enter user age provided this input
+- married status radio input →  value is yes or no → required must
+- Password input - user secret password provide this input → required must
+- confirm password input - user confirmation this password was same → validation check to password input
 
-### `yarn test`
+**user authentication sign in: → every input must be validation check**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Email input → user sign up email provide → required must
+- Password input → user sign up password → required must
 
-### `yarn build`
+**Note:**  all input data sent to backend server. if match to sign up info or sign in info is equal then authentication is success. if don’t match user authentication info not access to user inside
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## **Backend:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Requirement:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**SignUp:**
 
-### `yarn eject`
+- get to signup data from frontend
+- validation to schema
+- if validation is successful then data is set to database
+- if validation not success then return a not success message to frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Login:** 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- get to signin data from frontend
+- get and matching to database signup user info
+- if user email or password match to database store signup user email and pass then user sent a successful authentication message
+- if not matching user email or password backend sent to not success message
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**API Routes:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- /api/v1/auth/signup → POST
+- /api/v1/auth/signin → GET
 
-## Learn More
+### **Model & Schema :**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**signup:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- username → string
+    - validation
+        - required
+        - minLength
+        - maxLength
+        - trim
+- email → string
+    - validation
+        - required
+        - check valid email → validation check to regular expression
+        - error message → if find any error
+- age → number
+    - validation
+        - required
+        - min
+- married → boolean
+    - validation
+        - default value set
+- password → string
+    - password hash
+    - validation
+        - require
 
-### Code Splitting
+## Technology selected:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Frontend:** 
 
-### Analyzing the Bundle Size
+- React
+- tailwind css
+- React router dom
+- React hooks form
+- axios
+- tailwind elements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Backend firework or library:** 
 
-### Making a Progressive Web App
+- Express.js
+- Mongoose
+- dotenv
+- **[bcrypt.js](https://github.com/kelektiv/node.bcrypt.js)**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Backend Middleware:**
 
-### Advanced Configuration
+- cors
+- morgan
+- express json
+- router
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Project setup:
 
-### Deployment
+**Use Tools:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Vs code → code editor
+- Github → my code store
